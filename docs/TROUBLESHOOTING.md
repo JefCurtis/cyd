@@ -18,7 +18,7 @@ Check in this order:
 5. Restart the laptop after driver installation.
 6. Disconnect and reconnect the CYD.
 
-Mac users can check WhatCable. **USB Serial, Full Speed (12 Mbps)** means data is working even if the app shows a slow-device warning.
+Mac users can check WhatCable. **USB Serial, Full Speed (12 Mbps)** means data is working even if the app shows a slow-device warning. `system_profiler SPUSBDataType` may omit a working CH340 device, so use `pio device list` and `/dev/cu.usbserial*` as the deciding checks.
 
 ## Upload cannot connect
 

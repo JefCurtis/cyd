@@ -10,6 +10,8 @@ Rules:
 - Work one step at a time.
 - Check before installing anything. Install only what is missing.
 - Ask before making a system-level change or installing software.
+- Prefer `pio device list --json-output` for device detection after PlatformIO is available.
+- On macOS, do not treat `system_profiler SPUSBDataType` as definitive. Trust a matching `/dev/cu.usbserial*` port and PlatformIO when they detect the CYD.
 - After each step, report the result in one plain-English sentence.
 - Do not paste successful command output. Summarize it in that one sentence.
 - Do not use jargon without explaining it.
@@ -17,10 +19,10 @@ Rules:
 
 Steps:
 1. Identify the operating system and available package manager.
-2. Confirm the CYD is attached with a USB cable.
-3. Check for Git, Python 3, and PlatformIO.
-4. Help install only missing tools in that order.
-5. Run `pio device list` and identify the CYD serial port.
+2. Check for Git, Python 3, and PlatformIO.
+3. Help install only missing tools in that order.
+4. Run `pio device list --json-output` and identify the CYD serial port.
+5. On macOS, also check `/dev/cu.usbserial*` and `/dev/cu.wchusbserial*`; accept either matching path when PlatformIO sees the same device.
 6. Ask for the back label or product specification only for the display and touch details that USB cannot identify.
 7. Follow docs/DEVICE_COMPATIBILITY.md and choose `hello-cyd` or `hello-cyd2usb`.
 8. Run `python3 scripts/doctor.py --build`, adding `--environment hello-cyd` for an original panel and using the correct Python command for the operating system. This queries the attached ESP32 and flash and compiles the Hello test without uploading.

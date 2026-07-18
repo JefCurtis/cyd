@@ -17,16 +17,19 @@ Prepare the attendee for the workshop by installing the small Hello CYD test. Do
 - After each step, report one plain-English sentence and do not paste successful command output.
 - Ask before uploading the Hello test firmware.
 - Never upload the Tap Quest `cyd` or `cyd2usb` environment during setup.
+- Prefer `pio device list --json-output` for device detection after PlatformIO is available.
+- On macOS, do not use `system_profiler SPUSBDataType` as the deciding check. CH340 devices may be absent there while a working `/dev/cu.usbserial*` port exists.
 
 ## Workflow
 
-1. Confirm a CYD is attached by USB.
-2. Read the model printed on the back from the user or a photo when available.
-3. Check Git, Python 3, and PlatformIO.
-4. Help install missing tools in that order.
-5. Run `pio device list` and identify the CH340 serial port.
-6. Follow `../../../docs/DEVICE_COMPATIBILITY.md`. Explain that USB cannot identify the display and touch controller, so use the back label or product specification to choose `hello-cyd` or `hello-cyd2usb`.
-7. Run the cross-platform check and matching Hello test build. The default is the newer dual-USB variant:
+1. Identify whether the laptop runs macOS, Windows, or Linux.
+2. Check Git, Python 3, and PlatformIO.
+3. Help install missing tools in that order.
+4. Run `pio device list --json-output` and identify the CH340 serial port.
+5. On macOS, also accept `/dev/cu.usbserial*` or `/dev/cu.wchusbserial*` as proof that the CYD is attached. If `system_profiler` disagrees, trust the serial port and PlatformIO.
+6. Read the model printed on the back from the user or a photo when available.
+7. Follow `../../../docs/DEVICE_COMPATIBILITY.md`. Explain that USB cannot identify the display and touch controller, so use the back label or product specification to choose `hello-cyd` or `hello-cyd2usb`.
+8. Run the cross-platform check and matching Hello test build. The default is the newer dual-USB variant:
 
 ```bash
 python3 scripts/doctor.py --build
@@ -34,9 +37,9 @@ python3 scripts/doctor.py --build
 
 For an original panel, add `--environment hello-cyd`. Use `py -3` or `python` on Windows when needed. The checker queries the attached ESP32 and 4 MB flash without writing firmware.
 
-8. Ask permission, then upload only the matching Hello environment.
-9. Ask the attendee to confirm the screen says "Hello, CYD!" and changes to "Touch works!" when tapped.
-10. Return exactly five one-sentence lines:
+9. Ask permission, then upload only the matching Hello environment.
+10. Ask the attendee to confirm the screen says "Hello, CYD!" and changes to "Touch works!" when tapped.
+11. Return exactly five one-sentence lines:
 
 ```text
 Device: [Detected ESP32, flash size, display, touch, and compatibility result.]
