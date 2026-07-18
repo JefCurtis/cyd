@@ -7,13 +7,14 @@ Prepare this macOS, Windows, or Linux laptop and attached CYD for the workshop. 
 
 Rules:
 - Read the README prerequisites, docs/DEVICE_COMPATIBILITY.md, docs/HARDWARE.md, and platformio.ini before acting.
-- Work one step at a time.
+- Run every safe, read-only check continuously. Do not ask me to continue between normal checks.
+- Pause only for installation or system-change approval, missing model information, Hello upload approval, or my visual confirmation.
 - Check before installing anything. Install only what is missing.
 - Ask before making a system-level change or installing software.
 - Prefer `pio device list --json-output` for device detection after PlatformIO is available.
 - On macOS, do not treat `system_profiler SPUSBDataType` as definitive. Trust a matching `/dev/cu.usbserial*` port and PlatformIO when they detect the CYD.
-- After each step, report the result in one plain-English sentence.
-- Do not paste successful command output. Summarize it in that one sentence.
+- Do not narrate successful commands or paste their output.
+- At every pause and at completion, show all five status lines below. Use Pending or Blocked for unfinished checks.
 - Do not use jargon without explaining it.
 - Ask before uploading the Hello test. Never upload the Tap Quest `cyd` or `cyd2usb` environment during setup.
 
@@ -30,12 +31,14 @@ Steps:
 10. Ask permission, then upload only the matching Hello environment.
 11. Ask the attendee to confirm the screen says "Hello, CYD!" and changes to "Touch works!" when tapped.
 
-Finish with exactly this short format, using one sentence per line:
-Device: [Compatible, supported variant, not compatible, or unknown, with reason.]
-Connection: [Whether the laptop sees the CYD serial port.]
-Tools: [Whether Git, Python 3, and PlatformIO are ready.]
-Build: [Whether the Hello firmware compiled and uploaded, including RAM and flash percentages.]
-Ready: [Whether the screen and touch tests passed, and the workshop is next.]
+At every pause and at completion, use exactly this short format with one sentence per line:
+Device: [Pass, Pending, or Blocked, plus the compatibility reason.]
+Connection: [Pass, Pending, or Blocked, plus serial-port status.]
+Tools: [Pass, Pending, or Blocked, plus Git, Python 3, and PlatformIO status.]
+Build: [Pass, Pending, or Blocked, plus Hello build and upload status and memory percentages when known.]
+Ready: [Yes or no, plus the single next action.]
+
+If you must pause, complete every other safe check first, show all five lines, and then ask one clear question.
 ```
 
 ## Important limitation

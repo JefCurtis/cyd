@@ -12,9 +12,10 @@ Prepare the attendee for the workshop by installing the small Hello CYD test. Do
 
 - Read the prerequisites in `../../../README.md`, plus `../../../docs/DEVICE_COMPATIBILITY.md` and `../../../platformio.ini`, first.
 - Detect whether the laptop runs macOS, Windows, or Linux and adapt commands accordingly.
-- Work one step at a time and ask before installing software or changing system settings.
+- Run every safe, read-only check continuously without asking the user to continue between steps.
+- Pause only when software or a system change needs approval, the model label is missing, the Hello upload needs approval, or the attendee must confirm the screen and touch result.
 - Check before installing. Install only what is missing.
-- After each step, report one plain-English sentence and do not paste successful command output.
+- Do not narrate successful commands or paste their output. At every pause and at completion, show all five status lines defined below, using Pending or Blocked where necessary.
 - Ask before uploading the Hello test firmware.
 - Never upload the Tap Quest `cyd` or `cyd2usb` environment during setup.
 - Prefer `pio device list --json-output` for device detection after PlatformIO is available.
@@ -39,14 +40,16 @@ For an original panel, add `--environment hello-cyd`. Use `py -3` or `python` on
 
 9. Ask permission, then upload only the matching Hello environment.
 10. Ask the attendee to confirm the screen says "Hello, CYD!" and changes to "Touch works!" when tapped.
-11. Return exactly five one-sentence lines:
+11. Return exactly five one-sentence lines. Never return only the result of the most recent step:
 
 ```text
-Device: [Detected ESP32, flash size, display, touch, and compatibility result.]
-Connection: [Whether the laptop sees the CYD serial port.]
-Tools: [Whether Git, Python 3, and PlatformIO are ready.]
-Build: [Whether the Hello firmware compiled and uploaded.]
-Ready: [Whether the screen and touch tests passed, and the workshop is next.]
+Device: [Pass, Pending, or Blocked, plus ESP32, flash, display, touch, and compatibility details.]
+Connection: [Pass, Pending, or Blocked, plus whether the laptop sees the CYD serial port.]
+Tools: [Pass, Pending, or Blocked, plus Git, Python 3, and PlatformIO status.]
+Build: [Pass, Pending, or Blocked, plus whether the Hello firmware compiled and uploaded.]
+Ready: [Yes or no, plus the single next action.]
 ```
+
+If the workflow must pause, complete every other safe check first and then show all five lines before asking one clear question.
 
 For firmware changes after setup, use the separate `cyd-development` skill.
