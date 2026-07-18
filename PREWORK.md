@@ -4,23 +4,37 @@ Complete this before the workshop. Setup and driver troubleshooting are not part
 
 ## Bring
 
-- ESP32-2432S028R Cheap Yellow Display
+- A compatible Cheap Yellow Display, or arrange to pair with someone bringing one
 - USB data cable that you have already tested
 - Spare data cable if you have one
 - USB adapter or hub required by your laptop
 - Laptop charger
 - Laptop with administrator access for driver installation
-- One small project idea
+- One small project idea, or a plan to continue with ChoreQuest
 
-Check the model printed on the back of the board. This workshop supports the 2.8-inch ILI9341 display with XPT2046 resistive touch. A similar-looking capacitive-touch or ST7789 board may require code changes.
+## Device and project options
+
+### If you do not have a CYD
+
+You can still attend. Pair with someone who has a device and work together from one laptop or take turns uploading from both laptops. Arrange your pair before the workshop if possible.
+
+### Recommended device
+
+The suggested board is this [ESP32 "Bruce" CYD package on AliExpress](https://www.aliexpress.com/item/1005009383089648.html). It includes the board, a clear acrylic case, touch pen, and cables.
+
+A similar device should work if it is an **ESP32-2432S028R** with a **2.8-inch ILI9341-compatible display** and **XPT2046 resistive touch**. Check the model printed on the back. Nearly identical boards with an ST7789 display or capacitive touch may need different drivers and will not work with the workshop firmware unchanged.
+
+### If you do not have a project idea
+
+Finish Tap Quest with the group, then use [ChoreQuest](https://github.com/JefCurtis/chorequest) as your next project. It builds on the same PlatformIO, LVGL, display, and touch foundation, then adds WiFi, the Todoist API, recurring tasks, rewards, and more complex data handling.
 
 ## Install for every operating system
 
 1. Install [Git](https://git-scm.com/downloads).
 2. Install [Python 3](https://www.python.org/downloads/) for the preflight checker.
-3. Install [Visual Studio Code](https://code.visualstudio.com/).
-4. In VS Code, install the **PlatformIO IDE** extension.
-5. Restart VS Code after PlatformIO finishes installing.
+3. Install [Visual Studio Code](https://code.visualstudio.com/), [Cursor](https://www.cursor.com/), or another VS Code-compatible editor.
+4. In the editor, install the **PlatformIO IDE** extension.
+5. Restart the editor after PlatformIO finishes installing.
 6. Open a PlatformIO terminal and verify:
 
 ```bash
@@ -31,11 +45,13 @@ pio --version
 
 On Windows, the Python command may be `py -3` or `python` instead of `python3`.
 
-If `pio` is not found in your normal terminal, use the PlatformIO terminal inside VS Code.
+If `pio` is not found in your normal terminal, use the PlatformIO terminal inside your editor. You can also use any other code editor if you install and run the PlatformIO CLI separately.
 
 ## macOS
 
-1. Install [WhatCable](https://www.whatcable.uk/).
+[WhatCable](https://www.whatcable.uk/) is a Mac app that shows what kind of USB connection macOS detects. For this workshop, it provides a quick way to confirm that your cable carries data instead of only supplying power. It is not being used to test transfer speed.
+
+1. Install WhatCable.
 2. Connect the CYD with the cable you will bring.
 3. In WhatCable, look under **Connected devices**.
 4. Confirm it shows **USB Serial, Full Speed (12 Mbps)**.

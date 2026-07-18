@@ -8,15 +8,15 @@ The starter project is **Tap Quest**, a small whack-a-mole-style game. A target 
 
 Setup time is not included in the workshop hour. Complete every item in [PREWORK.md](PREWORK.md) before arriving.
 
-- [ ] ESP32-2432S028R CYD with an ILI9341 display and XPT2046 resistive touch
-- [ ] Laptop with Git, Python 3, VS Code, and the PlatformIO IDE extension
+- [ ] Compatible CYD, or a partner who is bringing one
+- [ ] Laptop with Git, Python 3, PlatformIO, and an editor such as VS Code or Cursor
 - [ ] USB data cable and any adapter your laptop needs
 - [ ] CH340 USB serial driver installed if your computer needs it
-- [ ] CYD appears as a serial device in PlatformIO
+- [ ] Your CYD or your partner's CYD appears as a serial device in PlatformIO
 - [ ] Repository cloned and dependencies downloaded
-- [ ] Both `pio run` and the preflight upload complete successfully
+- [ ] Both `pio run` and the preflight upload complete successfully on the device you will share
 - [ ] Tap Quest appears on the device and responds to touch
-- [ ] A project idea described as: "When ___ happens, the device should ___"
+- [ ] A project idea described as "When ___ happens, the device should ___", or a plan to continue with [ChoreQuest](https://github.com/JefCurtis/chorequest)
 
 Mac users must also install [WhatCable](https://www.whatcable.uk/). When the CYD is attached, **Connected devices: USB Serial, Full Speed (12 Mbps)** confirms the cable carries data. WhatCable may still call it a slow device because the CH340 serial chip does not need high-speed USB.
 
@@ -32,7 +32,7 @@ python3 scripts/doctor.py --build
 
 | Part | What the workshop expects |
 |---|---|
-| CYD | ESP32-2432S028R, 2.8-inch 320x240 display |
+| CYD | Recommended: [ESP32 "Bruce" package](https://www.aliexpress.com/item/1005009383089648.html). Similar ESP32-2432S028R boards should work when they use an ILI9341-compatible display and XPT2046 resistive touch. |
 | Display | ILI9341-compatible SPI display |
 | Touch | XPT2046 resistive touchscreen |
 | USB | A known data cable, not a charge-only cable |
@@ -43,7 +43,7 @@ python3 scripts/doctor.py --build
 
 | Tool | Its job |
 |---|---|
-| VS Code | Edit and navigate the project |
+| VS Code, Cursor, or another editor | Edit and navigate the project. The editor is your choice; the workshop uses PlatformIO to build and upload. |
 | Python 3 | Run the optional cross-platform preflight checker |
 | PlatformIO | Download libraries, compile C++, upload firmware, and open the serial monitor |
 | Arduino framework | Provides the ESP32 runtime, timing, storage, WiFi, and hardware APIs |
