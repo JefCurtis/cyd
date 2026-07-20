@@ -36,9 +36,15 @@ Use [ARCHITECTURE.md](ARCHITECTURE.md) and locate:
 - [ ] LVGL screens in `src/ui/`
 - [ ] Persistent storage in `src/data/`
 
-### 3. Make it yours: 10 minutes
+### 3. Choose your path: 10 minutes
 
-In `src/ui/game_ui.cpp`:
+Continue with the guided Tap Quest changes below, or open [Build something after Tap Quest](NEXT_PROJECT.md) and tell your agent:
+
+```text
+I finished Tap Quest. Help me choose what to build next. Ask me one question at a time and keep the first version small enough to build and test during this workshop.
+```
+
+If you stay with Tap Quest, make it yours in `src/ui/game_ui.cpp`:
 
 - [ ] Rename Tap Quest
 - [ ] Rewrite the start-screen instructions
@@ -75,6 +81,12 @@ Choose one:
 - [ ] Add a reset-high-score button using `highScoreStore::clear()`
 
 ### 7. Pick the next layer: 5 minutes
+
+If you have an idea, you can describe it without naming files:
+
+```text
+Help me turn this starter into [your idea]. Keep the working display, touch, and LED foundation. Propose the smallest useful version first, then wait for my approval.
+```
 
 Write your project as:
 

@@ -8,6 +8,9 @@ Read these before changing firmware:
 - `docs/ARCHITECTURE.md`
 - `docs/HARDWARE.md`
 - `.agents/skills/cyd-development/SKILL.md`
+- `.cyd-device.json` when present; it records the environment that passed the physical screen and touch test
+
+For a new project idea or ChoreQuest handoff, also read `docs/NEXT_PROJECT.md`.
 
 ## Supported target
 
@@ -25,7 +28,9 @@ Read these before changing firmware:
 - Do not block LVGL callbacks with delays, WiFi loops, or HTTP requests.
 - Preserve partial rendering unless a memory calculation proves a change is safe.
 - Prefer touch targets at least 30 to 44 pixels.
-- Keep the game useful offline.
+- Keep the application useful offline.
+- `Hotelnet` is the tested workshop network and has no password or captive portal.
+- Verify HTTPS certificates before sending credentials or private data. Never use `setInsecure()` as a workaround.
 - Never commit credentials or API tokens.
 - Run `pio run` after changes.
 - Do not flash a connected device unless the user approves replacing its firmware.

@@ -12,7 +12,15 @@ You are working on firmware for an ESP32-2432S028R Cheap Yellow Display.
 Before editing code:
 1. Read README.md, docs/ARCHITECTURE.md, docs/HARDWARE.md, and AGENTS.md.
 2. Read platformio.ini as the source of truth for the board, drivers, pins, library versions, upload speed, and display variant.
-3. Identify which layers the request touches: hardware, UI, game logic, local data, network, or API data.
+3. Read `.cyd-device.json` when it exists. Treat its serial port as a hint, but trust its verified display environment.
+4. Identify which layers the request touches: hardware, UI, application logic, local data, network, or API data.
+
+When I describe an idea instead of a precise edit:
+- Ask one question at a time and only about missing product decisions.
+- Propose the smallest useful version that can be built and tested during the workshop.
+- Explain what will be postponed.
+- Wait for my approval before replacing major application code.
+- Reuse the working Tap Quest display, touch, LED, and build foundation instead of starting with an empty PlatformIO project.
 
 Hardware assumptions:
 - ESP32-WROOM-32 with 4 MB flash and no PSRAM
@@ -33,7 +41,10 @@ Engineering rules:
 - Do not perform long delays, WiFi connection loops, or blocking HTTP requests in LVGL event callbacks.
 - Design touch targets for a resistive screen. Prefer at least 30 to 44 pixels.
 - Preserve an offline path when adding networking.
-- Build after changes with `pio run`.
+- The workshop network is `Hotelnet` with an empty password and no captive portal. It has passed DHCP, DNS, NTP, and Todoist HTTPS tests.
+- Keep WiFi and API values in gitignored local configuration.
+- Verify HTTPS certificates. Never use `setInsecure()` with credentials or private data.
+- Build after changes with the target environment from the project and verified device profile.
 - Do not upload firmware unless the user asks. Uploading replaces the device's current firmware.
 
 When finished, report:
@@ -42,4 +53,5 @@ When finished, report:
 - Build result and RAM/flash summary
 - Hardware behavior that still needs testing
 - Any assumptions about the CYD variant
+- The one physical behavior I should test next
 ```

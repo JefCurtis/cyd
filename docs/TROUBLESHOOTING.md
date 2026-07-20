@@ -92,8 +92,11 @@ Measure before guessing. Print `ESP.getFreeHeap()` before and after large operat
 
 ## WiFi will not connect
 
-- Confirm the network is 2.4 GHz compatible.
-- Avoid networks requiring a browser login or terms acceptance.
-- Use a known hotspot or travel router.
+For the workshop, use SSID `Hotelnet` with an empty password. It has been verified from a CYD without a captive portal.
+
+- Move the device if signal strength is weak; it varied during testing.
+- Confirm the code supports an open network instead of treating an empty password as missing configuration.
 - Add a timeout. Never leave the device in an infinite connection loop.
-- Keep the offline game available when connection fails.
+- Keep the offline application available when connection fails.
+- If HTTPS fails, confirm time synchronized and the correct root CA is installed. Do not disable certificate verification.
+- For another network, confirm it offers 2.4 GHz and does not require a browser login or WPA Enterprise configuration.

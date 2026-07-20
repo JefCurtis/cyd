@@ -61,8 +61,8 @@ GET /api/scores?game=tap-quest&limit=10
 
 | Concern | Recommended approach |
 |---|---|
-| Hotel WiFi | Test with a dedicated 2.4 GHz hotspot or travel router. Do not assume captive-portal WiFi will work. |
-| TLS memory | Reuse or release HTTP clients carefully. Keep JSON documents small. |
+| Workshop WiFi | `Hotelnet` is tested 2.4 GHz open WiFi with no password or captive portal. Keep timeouts and offline play because signal strength can vary. |
+| TLS security and memory | Verify the API certificate and hostname. Never disable verification for credentials or private data. Reuse or release HTTP clients carefully and keep JSON documents small. |
 | Frozen UI | Queue requests from UI events and process them from the main loop or a worker task. |
 | Offline scores | Save one pending score in NVS and retry with a limit. The game must not block waiting for upload. |
 | API abuse | Validate score ranges server-side and rate-limit device submissions. This is a friendly leaderboard, not secure anti-cheat. |
