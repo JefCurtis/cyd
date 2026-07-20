@@ -44,7 +44,7 @@ Run:
 /skill:cyd-workshop-init
 ```
 
-The skill checks the attached ESP32 and flash, verifies the serial connection, installs only missing tools with your approval, builds the Hello screen, and asks before flashing it. It defaults safely to the common dual-USB configuration, then uses the actual screen and touch result to confirm compatibility. A hidden model label does not block setup.
+The skill checks the attached ESP32 and flash, verifies the serial connection, installs only missing tools with your approval, builds the Hello screen, and asks before flashing it. It defaults safely to the common dual-USB configuration, then uses the actual screen and touch result to confirm compatibility. A hidden model label does not block setup. After the test passes, it saves a local device profile so later agent sessions remember the verified display environment.
 
 If you prefer to run the instructions manually, use the copyable [AI setup prompt](docs/PREWORK_AGENT.md) or the detailed [command reference](docs/COMMAND_REFERENCE.md).
 
@@ -70,7 +70,22 @@ Replace the Hello test with Tap Quest. Choose the correct board configuration, b
 
 The agent will use the device information collected during setup, build the correct Tap Quest configuration, and ask before replacing the Hello firmware. If you prefer to run the command yourself, use the [manual command reference](docs/COMMAND_REFERENCE.md).
 
-## Your one-hour checklist
+## Choose what to build
+
+Once Tap Quest works, continue with the guided exercises or turn the tested starter into your own project. You can describe the result without knowing source files, pins, or libraries.
+
+| Path | Tell your AI agent |
+|---|---|
+| Change Tap Quest | `Make each round 20 seconds and change the target to blue.` |
+| Build your own idea | `Help me turn this into a two-player scorekeeper. Start with the smallest useful version.` |
+| Explore ChoreQuest | `Set up ChoreQuest beside this project for my attached CYD.` |
+| Help me choose | `I finished Tap Quest. Ask me one question at a time and help me choose what to build next.` |
+
+The `cyd-development` skill gives the agent the tested hardware constraints, project layers, Hotelnet details, security rules, and build and upload workflow. Read [Build something after Tap Quest](docs/NEXT_PROJECT.md) for project ideas and more copyable prompts.
+
+## Guided Tap Quest checklist
+
+Use this path when you want to learn the layers through several small changes. You can switch to your own project after the baseline works.
 
 | Time | Task | Done when |
 |---|---|---|
@@ -122,7 +137,7 @@ Future WiFi and API code should go into `src/network/` and `src/data/`, not into
 
 ## Continue after the workshop
 
-Start with the progressive tasks in [docs/EXERCISES.md](docs/EXERCISES.md). Stretch goals include lives, combos, sound, adaptive difficulty, two-device multiplayer, over-the-air updates, and an API-backed leaderboard. The suggested leaderboard contract is in [docs/LEADERBOARD.md](docs/LEADERBOARD.md).
+Use [Build something after Tap Quest](docs/NEXT_PROJECT.md) to reshape the tested starter, set up ChoreQuest, or choose another project. The progressive tasks in [docs/EXERCISES.md](docs/EXERCISES.md) include lives, combos, sound, adaptive difficulty, two-device multiplayer, over-the-air updates, and an API-backed leaderboard. The suggested leaderboard contract is in [docs/LEADERBOARD.md](docs/LEADERBOARD.md).
 
 ## Troubleshooting and references
 
@@ -134,6 +149,7 @@ Start with the progressive tasks in [docs/EXERCISES.md](docs/EXERCISES.md). Stre
 | [Architecture](docs/ARCHITECTURE.md) | How PlatformIO, hardware drivers, LVGL, game logic, and data fit together. |
 | [Hardware and limits](docs/HARDWARE.md) | Pins, memory, storage, display, touch, networking, and board variants. |
 | [Exercises](docs/EXERCISES.md) | The one-hour checklist and progressive stretch goals. |
+| [Build something next](docs/NEXT_PROJECT.md) | Guided paths, project ideas, ChoreQuest setup, and copyable AI prompts. |
 | [Troubleshooting](docs/TROUBLESHOOTING.md) | Cable, serial, upload, display, touch, build, and WiFi failures. |
 | [CYD community repository](https://github.com/witnessmenow/ESP32-Cheap-Yellow-Display) | Community setup notes, examples, pinouts, and hardware information. |
 | [CYD project gallery](https://github.com/witnessmenow/ESP32-Cheap-Yellow-Display/blob/main/PROJECTS.md) | Examples of what other people have built. |

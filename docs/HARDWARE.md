@@ -90,7 +90,9 @@ Use controls at least 30 to 44 pixels where possible. Do not rely on multitouch,
 
 The ESP32 uses 2.4 GHz WiFi. It usually cannot join hotel or conference networks that require accepting terms in a browser. WPA Enterprise networks may also need special handling.
 
-For development, use a known 2.4 GHz network or a compatible hotspot. Build an offline mode so the device still has a useful screen when the network or API is unavailable.
+For this workshop, `Hotelnet` has been tested directly from a CYD. It is open WiFi with no password or captive portal, and DHCP, DNS, NTP, and HTTPS to Todoist worked. Signal strength varied, so connection attempts still need a timeout and visible status.
+
+Store network values in a gitignored local file. Open WiFi makes HTTPS verification especially important: verify the API certificate and hostname before sending a token or private data. Build an offline mode so the device still has a useful screen when the network or API is unavailable.
 
 ## Board variants
 
