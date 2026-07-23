@@ -56,8 +56,8 @@ Log out and back in afterward. Some Linux distributions use `uucp` instead of `d
 ## Clone the project
 
 ```bash
-git clone https://github.com/JefCurtis/doist-connect-2026-cyd-workshop.git
-cd doist-connect-2026-cyd-workshop
+git clone https://github.com/JefCurtis/cyd.git
+cd cyd
 ```
 
 | Command part | Plain-English meaning |
