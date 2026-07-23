@@ -48,7 +48,10 @@ Possible projects:
 | Counter | Two large buttons and a saved total |
 | Habit tracker | A short local checklist that resets each day |
 | Room display | Time, a message, and light-based brightness |
+| Bluetooth media remote | Previous, play/pause, next, volume down, settings, and volume up |
 | API dashboard | One value fetched safely with a useful offline state |
+
+The [CYD Stream Deck](https://github.com/gahingwoo/cyd-stream-deck) option was tested at the venue with the workshop CYD and a Mac. It connected as a Bluetooth keyboard and changed the Mac's media volume. The same Bluetooth keyboard library supports Windows. Advertise once when the device starts, then pair through the computer's Bluetooth settings.
 
 Your local workshop folder can become the new project. You do not need another GitHub repository. The agent can help publish it later if you want.
 

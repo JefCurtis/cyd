@@ -12,6 +12,7 @@ Use this profile when the target project does not already document its board.
 | Touch | XPT2046 resistive single-touch |
 | USB serial | CH340 |
 | WiFi | 2.4 GHz |
+| Bluetooth | Classic and BLE; tested as a macOS media-key keyboard |
 | Upload speed | 460800 |
 | Serial monitor | 115200 |
 

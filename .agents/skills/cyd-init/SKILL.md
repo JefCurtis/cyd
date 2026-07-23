@@ -1,5 +1,5 @@
 ---
-name: cyd-workshop-init
+name: cyd-init
 description: Prepares a Mac, Windows, or Linux laptop and attached ESP32-2432S028R CYD for the workshop. Use before prerequisites or when the user asks to initialize, set up, check, or prepare a CYD workshop device.
 compatibility: Requires this repository, a USB-connected CYD, admin access, and an AI agent that can run terminal commands.
 ---
