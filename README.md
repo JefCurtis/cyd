@@ -24,8 +24,8 @@ A simple place to keep the project is your **Documents** folder:
 
 ```bash
 cd ~/Documents
-git clone https://github.com/JefCurtis/doist-connect-2026-cyd-workshop.git
-cd doist-connect-2026-cyd-workshop
+git clone https://github.com/JefCurtis/cyd.git
+cd cyd
 ```
 
 On Windows PowerShell, use `cd $HOME\Documents` for the first command.
