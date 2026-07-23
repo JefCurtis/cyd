@@ -4,19 +4,12 @@ Build, flash, and change a touchscreen game on a Cheap Yellow Display in one hou
 
 The starter project is **Tap Quest**, a small whack-a-mole-style game. A target moves around the screen, gets smaller as your score rises, flashes the onboard RGB LED, and saves the high score on the device. It works without WiFi so the workshop does not depend on hotel networking.
 
-## Prerequisites: complete these before the workshop
+## What you need
 
-The setup skill works on macOS, Windows, and Linux. It checks the attached device, installs missing software with your approval, and flashes a small **Hello, CYD!** screen. Tap Quest is not installed until the workshop.
-
-### What you need
-
-- ESP32-2432S028R Cheap Yellow Display
+- [ESP32 "Bruce" Cheap Yellow Display](https://www.aliexpress.com/item/1005009383089648.html)
 - USB data cable. A charge-only cable may power the screen but cannot connect the device; the setup skill will test this. Mac users can optionally use [WhatCable](https://www.whatcable.uk/) when troubleshooting.
 - Laptop with admin access
-- Git installed
-- An AI coding agent that can read this repository and run terminal commands
-
-The recommended board is this [ESP32 "Bruce" CYD package on AliExpress](https://www.aliexpress.com/item/1005009383089648.html). Similar devices should use an ESP32-2432S028R, 2.8-inch 320x240 ILI9341-compatible display, XPT2046 resistive touch, and 4 MB flash.
+- An AI coding agent that can read this repository and run terminal commands, such as Claude Code, Codex, or Gemini
 
 ### 1. Clone the repository
 
@@ -38,15 +31,9 @@ On Windows PowerShell, use `cd $HOME\Documents` for the first command.
 
 ### 3. Run the setup skill
 
-Run:
-
 ```text
-/skill:cyd-workshop-init
+/cyd-init
 ```
-
-The skill checks the attached ESP32 and flash, verifies the serial connection, installs only missing tools with your approval, builds the Hello screen, and asks before flashing it. It defaults safely to the common dual-USB configuration, then uses the actual screen and touch result to confirm compatibility. A hidden model label does not block setup. After the test passes, it saves a local device profile so later agent sessions remember the verified display environment.
-
-If you prefer to run the instructions manually, use the copyable [AI setup prompt](docs/PREWORK_AGENT.md) or the detailed [command reference](docs/COMMAND_REFERENCE.md).
 
 ### You are ready when
 
@@ -81,23 +68,36 @@ Once Tap Quest works, continue with the guided exercises or turn the tested star
 | Explore ChoreQuest | `Set up ChoreQuest beside this project for my attached CYD.` |
 | Help me choose | `I finished Tap Quest. Ask me one question at a time and help me choose what to build next.` |
 
-The `cyd-development` skill gives the agent the tested hardware constraints, project layers, Hotelnet details, security rules, and build and upload workflow. Read [Build something after Tap Quest](docs/NEXT_PROJECT.md) for project ideas and more copyable prompts.
+The `cyd-development` skill gives the agent the tested hardware constraints, project layers, Hotelnet details, security rules, and build and upload workflow. Read [Build something after Tap Quest](docs/NEXT_PROJECT.md) for more prompts.
 
-## Guided Tap Quest checklist
+If you ask for help choosing, the agent asks what kind of experience you want, whether it should use WiFi or built-in hardware, and how much time you have. It then suggests a few small first versions using the project examples below, the curated ideas in `docs/NEXT_PROJECT.md`, and its general knowledge. You choose one before it changes the code.
 
-Use this path when you want to learn the layers through several small changes. You can switch to your own project after the baseline works.
+## Projects to try
 
-| Time | Task | Done when |
-|---|---|---|
-| 0:00 to 0:08 | Connect and upload the starter | Tap Quest opens on your CYD |
-| 0:08 to 0:15 | Trace the software layers | You can identify PlatformIO, hardware, UI, game, and data files |
-| 0:15 to 0:25 | Change the game title and colors | Your version looks visibly different |
-| 0:25 to 0:35 | Change duration, target size, and difficulty | Your rules run on the device |
-| 0:35 to 0:45 | Change the RGB LED feedback | A hit produces your chosen feedback |
-| 0:45 to 0:55 | Add one small game feature | Your version has one behavior the starter did not |
-| 0:55 to 1:00 | Choose a stretch goal | You know which layer to change next |
+Find more examples in the [Cheap Yellow Display project gallery](https://github.com/witnessmenow/ESP32-Cheap-Yellow-Display/blob/main/PROJECTS.md).
 
-The exact exercises and file locations are in [docs/EXERCISES.md](docs/EXERCISES.md).
+| Project | What you'll build |
+|---|---|
+| [Aura Weather Display](https://github.com/Surrey-Homeware/Aura) | A polished little weather companion with current conditions and a forecast from Open-Meteo. |
+| [ChoreQuest](https://github.com/JefCurtis/chorequest) | A friendly Todoist task tracker with recurring chores, rewards, and satisfying check-offs. |
+| [CYD Stream Deck](https://github.com/gahingwoo/cyd-stream-deck) | A six-button Bluetooth media remote that pairs with a Mac or Windows laptop. |
+| [GitHub Stats](https://github.com/ATOMNFT/ESP32-CYD-Projects/tree/main/GitHub-Stats) | A tiny desk dashboard showing stars, forks, issues, followers, and recent activity for a repository. |
+| [London Underground Arrivals](https://github.com/mgaman/TFL-tube-arrivals-board-ESP32-TFT-Arduino) | A live station board showing the next trains, built from public transit data. |
+| [Spotify DIY Thing](https://github.com/witnessmenow/Spotify-Diy-Thing) | A tiny now-playing screen that shows your current Spotify track and album art. |
+
+## Open APIs to try
+
+These APIs require no key for basic use. The agent should test the endpoint before building around it.
+
+| API | Example project |
+|---|---|
+| [Open-Meteo](https://open-meteo.com/en/docs) | Local weather dashboard |
+| [PokéAPI](https://pokeapi.co/) | Pokédex or guessing game |
+| [Open Trivia Database](https://opentdb.com/api_config.php) | Touchscreen trivia game |
+| [REST Countries](https://restcountries.com/) | Country explorer or travel quiz |
+| [Open Library](https://openlibrary.org/developers/api) | Book search or reading picker |
+| [Frankfurter](https://frankfurter.dev/) | Currency converter |
+| [JokeAPI safe-mode endpoint](https://v2.jokeapi.dev/joke/Any?safe-mode) | Random joke button or joke-of-the-day screen |
 
 ## What the CYD can do
 
@@ -115,7 +115,7 @@ The exact exercises and file locations are in [docs/EXERCISES.md](docs/EXERCISES
 | Limit | In practice |
 |---|---|
 | 4 MB flash | The default app partition is about 1.3 MB. Tap Quest uses about 591 KB, so large images and sound belong on microSD. |
-| About 320 KB RAM and no PSRAM | There is not enough memory for multiple full-screen buffers. This project renders 20 rows at a time instead. |
+| About 320 KB RAM and no PSRAM | A modern phone with 8 GB has about 25,000 times more RAM. One full CYD screen already uses nearly half of what is available, so this project renders 20 rows at a time. |
 | SPI display, no GPU | Buttons and small animations work well. Video and constant full-screen animation do not. |
 | Resistive single-touch screen | Use larger controls. Multitouch and phone-style gestures are not available. |
 | WiFi uses extra memory | Keep an offline mode and avoid blocking the touch interface during API calls. |
